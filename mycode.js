@@ -68,7 +68,7 @@
 // //   console.log('\n')
 // // }
 
-// let bestFoods = ['curry', 'pizza', 'burrito', 'strawberry', 'blueberry', 'sushi', 'banana', 'oats', 'spaghetti', 'toast']
+let bestFoods = ['curry', 'pizza', 'burrito', 'strawberry', 'blueberry', 'sushi', 'banana', 'oats', 'spaghetti', 'toast']
 // // console.log(`The best of the best are ${bestFoods[0]} and ${bestFoods[2]}`)
 
 // // bestFoods.splice(2,3)
@@ -88,7 +88,7 @@
 
 // // bestFoods.map()
 
-// let upFoods = bestFoods.map( x => x.toUpperCase() ) 
+let upFoods = bestFoods.map( x => x.toUpperCase() ) 
 
 // // for (let food in upFoods){
 // //   if (food % 3 == 0) {
@@ -110,30 +110,7 @@
 // // my solution
 // let capFoods = upFoods.filter( x => vowels.find( v => v === x[0].toLowerCase())) // [ 5, 7 ]
 
-// // more efficient 
-// // let capFoods = upFoods.filter( x => vowels.includes(x[0].toLowerCase()))  // [ 5, 7 ]
-// document.write(capFoods)
+// more efficient 
+let capFoods = upFoods.filter( x => vowels.includes(x[0].toLowerCase()))  // [ 5, 7 ]
+console.log(capFoods)
 
-// CONVERT DECIMAL TO BINARY 
-function decToBinary(decimal) 
-{ 
-    // array to store binary number 
-    let arr = [] 
-  
-    // counter for binary array 
-    i = 0;
-    while (decimal > 0) { 
-  
-        // storing remainder in binary array
-        arr[i] = decimal % 2
-        decimal = parseINT(decimal / 2)
-        i++
-    }
-  
-    // printing binary array in reverse order 
-    return arr.reverse()
-} 
-
-console.log(decToBinary(5))
-console.log(decToBinary(15))
-console.log(decToBinary(345))
