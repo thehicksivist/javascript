@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" /> -->
+   
+</head>
+<body>
+    <a href="http:://coderacadmey.edu.au/" id="caLink">Coder Academy</a>
+
+    <img id="cat" src="https://placekitten.com/g/200/300">
+
+    <form id="userForm">
+            <label for="question">How many cats do you see?</label>
+            <input type="text" id="answer"/>
+            <input type="submit" id="submitBtn" value="Submit" />
+          </form>
+
+    <script>
+        let cat = document.getElementById("cat")
+
+        cat.addEventListener("mouseover", function (event) {
+        console.log("CAT ON")
+        })
+
+        cat.addEventListener("mouseout", function (event) {
+        console.log("CAT OFF")
+        })
+
+        cat.addEventListener("click", function (event) {
+        alert("MEOW!")
+        })
+
+        let acad = document.getElementById("caLink")
+
+        acad.addEventListener("click", function (event) {
+            event.preventDefault()
+            alert("NO WAY JOSE!")
+        })
+        
+      
+        let submit = document.getElementById("submitBtn")
+
+
+        submit.addEventListener("click", function (event) {
+                event.preventDefault()
+
+                let answer = document.getElementById("answer").value
+                let number = parseInt(answer) * 100
+                console.log(number)
+        })
+
+
+    </script>
+</body>
+</html>
