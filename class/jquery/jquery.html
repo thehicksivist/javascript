@@ -1,0 +1,142 @@
+<!doctype html>
+<html>
+  <head>
+    <style>
+    body {
+      background-color: gray;
+      }
+      .container {
+        margin: 0 auto;
+        width: 80%;
+      }
+
+      .span3 {
+        margin: 0 auto;
+        width: 20%;
+      }
+    
+    
+    </style>
+    <meta charset="utf-8">
+   <title>Video Watcher</title>
+   <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+   <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
+  </head>
+  <body>
+
+    <div class="container">
+ 
+    <div class="row">
+      <div class="span12">
+        <h2 class="page-header">Best Videos Ever ❤</h1>
+      </div>
+    </div>
+ 
+    <div class="row">
+      <div class="span3">
+        <ul class="links">
+          <li><a href="https://www.youtube.com/watch?v=TddFnTB_7IM">Trip through the 80s</a></li>
+          <li><a href="https://www.youtube.com/watch?v=epUk3T2Kfno">Otters Holding Hands</a></li>
+          <li><a href="https://www.youtube.com/watch?v=il2IrgFHfsg">The Ooooh Cat</a></li>
+        </ul>
+       </div>
+     </div>
+     <div id="player"></div>
+    </div>
+
+    <script type="text/javascript" src="youtube.js"></script>
+    <script>
+            // Create an array of every link on the page using document.querySelectorAll(cssSelector
+            // Iterate through the array. In each iteration of the loop:
+            // Find the current href using element.getAttribute(name), and store into a variable
+            // Generate a thumbnail URL using youtube.generateThumbnailUrl(videoUrl)
+            // Create an IMG element using document.createElement(tagName)
+            // Set the "src" of the IMG element using element.setAttribute(name, value)
+            // Append the IMG to the link using element.appendChild(element)
+            // In the body of your HTML, create a <div> to hold the video player, either below or to the side of the list, and give it an id.
+            // In the script tag that you were working in before, create a thumbnailify() function that takes a single argument.
+            // Move the code that is currently inside your for loop into that thumbnailify() function.
+            // Change the contents of your function so that it uses a single argument, which is a jQuery object that represents an <a>, rather than an array of elements.
+            // Move the for loop so that it occurs after you define thumbnailify()
+            // Call thumbnailify() from inside your for loop.
+            // Make sure your player first works like it did before. Hint: you should only reference an array index from inside of the for loop.
+            // Now, in the thumbnailify() function, add a click listener to the link. We recommend using a named function for the callback (not an anonymous function). Put a console.log inside the callback to make sure it works.
+            // In the click listener callback, you will be using the "create and store, manipulate, inject" pattern to display an embedded video in the DIV you created.
+            // To find out what the code for an embedded Youtube video looks like, go to Youtube.com and find any embed code for a video.
+            // You can use youtube.generateEmbedUrl() from the youtube.js library to generate an embed URL.
+            // Use string concatenation, .html(), or other jQuery method of your choice to assemble and insert the embedded video element.
+            // Check your work! Try all your video links. Is there anything you need to change?
+            // As a bonus, try to make the video watcher <div> fade in using jQuery.
+
+            // JAVASCRIPT
+            // arr = document.querySelectorAll('a')
+            // for (let link of arr) {
+
+            //     let current = link.getAttribute('href')
+            //     let pic = youtube.generateThumbnailUrl(current)
+            //     let img = document.createElement('img')
+            //     img.setAttribute('src', pic)
+            //     link.appendChild(img)
+            // }
+
+            // JQUERY
+            $arr = $('a')
+
+            // for (let link of $arr) {
+
+            //     let $link = $(link)
+            //     let $current = $link.attr('href')
+            //     let $pic = youtube.generateThumbnailUrl($current)
+            //     let $img = $('<img>')
+            //     $img.attr('src', $pic)
+            //     $link.append($img)
+
+            // }
+            
+            // ADDING VIDEO PLAYER TO PAGE
+            function thumbnailify(a) {
+
+              let videoLink = $(a)
+              let linkUrl = videoLink.attr('href')
+              let thumbnailUrl = youtube.generateThumbnailUrl(linkUrl)
+              let thumbNailImg = $('<img>')
+
+              thumbNailImg.attr('src', thumbnailUrl)
+              videoLink.prepend(thumbNailImg)
+
+              a.addEventListener("click", function () {
+                event.preventDefault()
+                console.log("clicky me timbers")
+                // create the code to embed the video
+                let videoEmbed = $('<iframe></iframe>')
+                console.log(videoEmbed)
+                videoEmbed.attr('src', youtube.generateEmbedUrl(linkUrl))
+                videoEmbed.attr('width', 560)
+                videoEmbed.attr('height', 315)
+                // store it in created div
+                let $player = $('#player')
+                console.log($player)
+                $player.html(videoEmbed)
+               // $player.innerHTML = `${embedUrl}`
+               // call it with click
+              })
+            }
+
+            for (let link of $arr) {
+              thumbnailify(link)
+            }
+    </script>
+    <script type="text/javascript" src="slick/slick.min.js"></script>
+     <script type="text/javascript">
+      $(document).ready(function(){
+        $('.links').slick({
+          dots: true,
+          infinite: true,
+          speed: 500,
+          fade: true,
+          cssEase: 'linear'
+        });
+      });
+    </script>
+  </body>
+</html>

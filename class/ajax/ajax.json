@@ -1,0 +1,6 @@
+[
+  { "name" : "John", "age" : 25, "married" : true },
+  { "name" : "Mary", "age" : 17, "married" : false },
+  { "name" : "David", "age" : 40, "married" : true },
+  { "name" : "Sally", "age" : 51, "married" : false }
+]

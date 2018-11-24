@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+</head>
+<body>
+    <script>
+    //         Write a function testNum that takes a number as an argument and returns a Promise that
+    //  tests if the value is less than or greater than the value 10.
+            function testNum(num) {
+                return new Promise(function (resolve, reject) {
+                    if (num < 10) {
+                        resolve(`${num} is less than 10`)
+                    } else {
+                        reject(`${num} is equal to or greater than 10`)
+                    }
+                })
+            }
+
+            testNum(5).then(function (res) {
+                console.log('Success: ', res)
+                }, function (err) {
+                console.error(`Error: ${err}`)
+                })
+
+            testNum(7).then(function (res) {
+                console.log('Success: ', res)
+                }, function (err) {
+                console.error(`Error: ${err}`)
+                })
+            testNum(15).then(function (res) {
+                console.log('Success: ', res)
+                }, function (err) {
+                console.error(`Error: ${err}`)
+                })
+
+
+    // The promise should resolve if the value is less than 10, or reject with an error otherwise.
+
+    // Write two blocks of code to test the promise - one that passes a value less than 10 (to test error handling),
+    //  and one that passes a value greater than 10.
+        
+        // Retrieve media devices and display them
+        // navigator.mediaDevices.enumerateDevices().then((res) => {
+    //   console.log(res.map(device => device.deviceId))
+    // })
+    </script>
+</body>
+</html>
