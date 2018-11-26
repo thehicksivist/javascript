@@ -43,11 +43,29 @@
                     </ul>
         </div>
     <script>
+        // web storage canvas challenge: Tasks should persist between browser restarts.
+        // retrieve from localstorage and repost whole list on refresh
+        window.onload = function() {
+            let list = JSON.parse(localStorage.getItem('saveList'))
+            let ul = document.getElementById("list")
+            console.log(list)
+            
+            for (item of list){
+                let li = document.createElement("li");
+                li.appendChild(document.createTextNode(`${item}`));
+                ul.appendChild(li)
+            }
+
+                // <!-- // Show the total number of tasks somewhere. -->
+        let x = document.getElementById("list").childElementCount;
+        document.getElementById('div1').innerHTML = `Total toDo items = ${x}`
+
+        }
+        
     // <!-- // When the user clicks the button, make a new todo item appear on the page. -->
         let form = document.getElementById('form1')
         form.addEventListener("submit", formSubmit)
 
-         
         // Make sure the button is a submit button. You'll need to update your event listener from 
         // `on button click` to `on form submit`. Pro tip: preventDefault will be helpful here. -->
         function formSubmit(event) {
@@ -62,13 +80,23 @@
         // <!-- // Set the input box back to an empty value when a task is added. -->
             document.getElementById("form1").reset();
 
+              // <!-- // Show the total number of tasks somewhere. -->
+            let x = document.getElementById("list").childElementCount;
+            document.getElementById('div1').innerHTML = `Total toDo items = ${x}`
+        
+        // store current list in localstorage
+        // localStorage.setItem('colorSetting', '#a4509b');
+        console.log(ul)
+        // li values
+        let currentList = document.querySelectorAll('li')
+            let storeList = []
+            for (x of currentList) {
+                storeList.push(x.innerHTML)
+            }
+        
+            console.log(storeList)
+        localStorage.setItem('saveList', JSON.stringify(storeList));
 
-            // <!-- // Show the total number of tasks somewhere. -->
-            
-        let x = document.getElementById("list").childElementCount;
-        document.getElementById('div1').innerHTML = `Total toDo items = ${x}`
-
-            
         } 
    
     </script>
