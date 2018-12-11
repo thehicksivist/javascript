@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <form action="/" method="post">
+      <input type="text" name="ingredient_name">
+      <input type="submit">
+    </form>
+    
+    <ul>
+      <% for (ingredient of ingredients) { %>
+        <li><%= ingredient.name %></li>
+      <% } %>
+    </ul>
+  </body>
+</html>

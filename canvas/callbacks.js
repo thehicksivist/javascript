@@ -1,4 +1,4 @@
-// Sometime we need random user data in our app. There's an app for that! https://randomuser.me
+    // Sometime we need random user data in our app. There's an app for that! https://randomuser.me
 
 // Save a copy of this file to your machine.
 // Open the file in your editor.
