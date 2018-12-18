@@ -1,9 +1,10 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import LoggingButton from './LoggingButton.jsx';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import './index.css'
+import LoggingButton from './LoggingButton.jsx'
+import NameForm from './NameForm.jsx'
+import App from './App'
+import * as serviceWorker from './serviceWorker'
 
 function FormattedDate(props) {
     return <h2>It is {props.date.toLocaleTimeString()}.</h2>
@@ -43,7 +44,7 @@ class Clock extends React.Component {
   }
   
   ReactDOM.render(
-    <LoggingButton />,
+    <NameForm />,
     document.getElementById('root')
   )
 
