@@ -37,21 +37,34 @@
       // This function uses AJAX to hit the random user API.
       // More info: https://randomuser.me
 
-      var request = new XMLHttpRequest();
-      request.open('GET', 'https://randomuser.me/api/', true);
-      request.onload = function () {
-        /* You'll start here */
-        console.log(request.response);
-        // executes parseRandomUser from the variable parser
-        parser(request.response)
-      };
-      request.send();
+      // var request = new XMLHttpRequest();
+      // request.open('GET', 'https://randomuser.me/api/', true);
+      // request.onload = function () {
+      //   /* You'll start here */
+      //   console.log(request.response);
+      //   // executes parseRandomUser from the variable parser
+      //   parser(request.response)
+      // };
+      // request.send();
+
+      fetch('https://randomuser.me/api')
+    .then(
+      (res) => res.json()
+    )
+    .then(
+      (json) => parser(json)
+    )
+    .catch(
+      (err) => console.error('Unable to fetch!', Error(err))
+    )
+
     }
 
     // recieves the request.response and stores in the variable user
-    parseRandomUser = (user) => {
+    function parseRandomUser(user) {
     // Your goal is to get parseRandomUser logging the random user details.
-      console.log(user)
+      console.log(user.results[0])
+
     }
 
     // pass in the parseRandomUser function on execution
