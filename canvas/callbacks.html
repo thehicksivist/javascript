@@ -32,7 +32,8 @@
     // Learn more about callbacks: http://callbackhell.com/
     // Look under the hood: What the heck is the event loop anyway?
 
-    getRandomUser = (parseRandomUser) => {
+    // recieve the parseRandomUser and store in variable parser
+    getRandomUser = (parser) => {
       // This function uses AJAX to hit the random user API.
       // More info: https://randomuser.me
 
@@ -41,16 +42,20 @@
       request.onload = function () {
         /* You'll start here */
         console.log(request.response);
+        // executes parseRandomUser from the variable parser
+        parser(request.response)
       };
-
       request.send();
     }
 
-    parseRandomUser = () => {
-      
+    // recieves the request.response and stores in the variable user
+    parseRandomUser = (user) => {
+    // Your goal is to get parseRandomUser logging the random user details.
+      console.log(user)
     }
 
-    getRandomUser(); // Execute the function
+    // pass in the parseRandomUser function on execution
+    getRandomUser(parseRandomUser); // Execute the function
     </script>
   </body>
 </html>
