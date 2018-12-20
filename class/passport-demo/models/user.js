@@ -10,7 +10,9 @@ const passportLocalMongoose = require('passport-local-mongoose');
 // We'll start with an empty schema, since we only want the fields provided by Passport for now.
 // We can add custom fields for our User model later.
 // mongoose schema comes with default values of username, password and email
-const User = new Schema({});
+const User = new Schema({
+    role: String
+});
 
 // connect passportLocalMongoose to the User schema and use 'email' instead of 'username'
 // initializes an instance of passportLocalMongoose, and passes the option to substitute the username login
