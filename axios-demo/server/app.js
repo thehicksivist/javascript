@@ -8,6 +8,7 @@ const app = express()
 const students = ['Jane', 'Jack', 'John']
 
 // Parse application/json
+// use will 
 app.use(bodyParser.json())
 // Use CORS to allow the client to be at a different origin to the server
 // Without this, the browser would block requests.
