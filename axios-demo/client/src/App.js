@@ -38,10 +38,6 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {/* <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Students</h1>
-        </header> */}
 
         <form onSubmit={this.createNewStudent}>
           <label>New Student:</label><input value={this.state.newStudent} onChange={this.changeNewStudent} />
